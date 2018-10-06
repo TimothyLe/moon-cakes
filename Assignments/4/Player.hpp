@@ -1,33 +1,40 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+//
+//  Player.hpp
+//  RPSAssignments135
+//
+//  Created by Michael Ong on 10/5/18.
+//  Copyright © 2018 CMPE135. All rights reserved.
+//
 
-#include <iostream>
+#ifndef Player_hpp
+#define Player_hpp
+
 #include <stdio.h>
+#include <iostream>
 #include <string>
 
-class Player
-{
-    public:
-        Player();
-        ~Player();
-        void        setScore(int s);
-        void        setName(std::string n);
-        void        setChoice(std::string c);
-        void        setWins(int w);
-        void        setLosses(int l);
-        void        setTies(int t);
-        int         getScore();
-        std::string getName();
-        std::string getChoice();
-        int         getWins();
-        int         getLosses();
-        int         getTies();
 
-    protected:
-        int         score;
-        int         id;
-        int         wins, losses, ties;
-        std::string name;
-        std::string choice;
+class Player{
+public:
+    Player();
+    ~Player();
+    void        setName();
+    void        setChoice(int c);
+    void        setWins();
+    void        setLosses();
+    void        setTies();
+    int         getScore();
+    std::string getName();
+    char        getChoice();
+    int         getWins();
+    int         getLosses();
+    int         getTies();
+private:
+    int         score;
+    int         wins, losses, ties;
+    std::string name;
+    char        choice;
 };
-#endif 
+
+
+#endif /* Player_hpp */

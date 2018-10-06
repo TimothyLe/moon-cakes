@@ -1,75 +1,78 @@
+//
+//  Player.cpp
+//  RPSAssignments135
+//
+//  Created by Michael Ong on 10/5/18.
+//  Copyright © 2018 CMPE135. All rights reserved.
+//
+
 #include "Player.hpp"
+#include <iostream>
 
 Player::Player()
 {
     score = 0;
-    id = 0;
     wins = 0;
     losses = 0;
     ties = 0;
     name = "Default";
-    choice = "None"; // Choices can be Rock, Paper, Scissors, or None
+    choice = NULL;
+    // Choices can be Rock, Paper, Scissors, or None
 }
-
 Player::~Player()
 {
+    //nothing here
 }
 
-void Player::setScore(int s)
+void Player::setName()
 {
-    score = s;
+    std::cout << "Please enter your name:\n";
+    std::cin >> name;
 }
-
-void Player::setName(std::string n)
+void Player::setChoice(int c)
 {
-    name = n;
+    if(c == 1){
+        choice = 'r';
+    }
+    if(c == 2){
+        choice = 'p';
+    }
+    if(c == 3){
+        choice = 's';
+    }
 }
-
-void Player::setChoice(std::string c)
+void Player::setWins()
 {
-    choice = c;
+    wins = wins+1;
 }
-
-void Player::setWins(int w)
+void Player::setLosses()
 {
-    wins = w;
+    losses = losses+1;
 }
-
-void Player::setLosses(int l)
+void Player::setTies()
 {
-    losses = l;
+    ties = ties+1;
 }
-
-void Player::setTies(int t)
-{
-    ties = t;
-}
-
 int Player::getScore()
 {
     return score;
 }
-
 std::string Player::getName()
-{   
+{
     return name;
 }
-
-std::string Player::getChoice()
+char Player::getChoice()
 {
     return choice;
 }
-
 int Player::getWins()
 {
     return wins;
 }
-
 int Player::getLosses()
 {
     return losses;
 }
-
 int Player::getTies()
 {
     return ties;

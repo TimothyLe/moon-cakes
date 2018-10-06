@@ -1,24 +1,27 @@
-#ifndef COMPUTER_H
-#define COMPUTER_H
+//
+//  Computer.hpp
+//  RPSAssignments135
+//
+//  Created by Michael Ong on 10/5/18.
+//  Copyright © 2018 CMPE135. All rights reserved.
+//
 
-#include <iostream>
+#ifndef Computer_hpp
+#define Computer_hpp
+
 #include <stdio.h>
-#include <string>
-#include <stdbool.h>n
 #include "Player.hpp"
+#include <iostream>
 
-class Computer :  public Player
-{
-    public:
-        Computer();
-        ~Computer();
-        std::string randomChoice();
-        void setPreviousChoice(Player &p);
-        void setPreviousSuccess(Player &p);
-        std:string getPreviousChoice();        
-
-    private:
-        std::string previousChoice;
-        bool previousSuccess;
+class Computer : public Player{
+public:
+    Computer();
+    void randomchoice(Player & p);
+    void educatedchoice(Player & p);
+    int getchoicecount();
+private:
+    int choicecount;
+    char playerchoices[5];
 };
-#endif 
+
+#endif /* Computer_hpp */
