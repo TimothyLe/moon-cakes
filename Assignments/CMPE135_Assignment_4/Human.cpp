@@ -10,17 +10,6 @@
 #include "Player.hpp"
 #include "Computer.hpp"
 
-Human::Human() :Player()
-{
-
-}
-
-Human::~Human()
-{
-
-}
-
-void Human::probability(Player & p)
-{
+Human::Human() :Player(){
     
 }

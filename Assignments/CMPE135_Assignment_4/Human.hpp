@@ -15,8 +15,6 @@
 class Human : public Player{
 public:
     Human();
-    ~Human();
-    void probability(Player & p);
 };
 
 #endif /* Human_hpp */
