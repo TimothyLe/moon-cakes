@@ -1,48 +1,19 @@
-// Created by Moon Cakes
-
 #include <iostream>
+#include <string>
 #include <fstream>
-#include "Memory.hpp"
-#include "Player.hpp"
-#include "Computer.hpp"
-#include "GameInterface.hpp"
+#include "./Memory.hpp"
 
-int main(){
-    GameInterface game;
-    Player p;
-    Computer comp;
+int main()
+{
     Memory m;
-    std::ofstream output;
-    
-    output.open("./output.txt");
-    
-    std::string exit;
-    
-    game.welcome();
-    exit = game.menu();
-    
-    if(exit == "1"){
-        p.setName();
+    std::string temp;
+    m.setFileName("./output.txt");
+    for(int i=0;i<6;i++)
+    {
+        m.setData('r');
     }
-    
-    std::cout<<"Let the games begin!\n";
-    
-    while(exit != "3" || game.getgamecount() <= 20){
-        game.game(p, comp);
-        
-        output << p.getChoice();
-        
-        game.compare(p, comp);
-        
-        if(game.getgamecount() == 20){
-            break;
-        }
-    }
-    game.results(p);
-    
-    output.close();
-
+    m.storeData();
+    m.loadData(temp);
+    std::cout << temp << '\n';
     return 0;
 }
-
-

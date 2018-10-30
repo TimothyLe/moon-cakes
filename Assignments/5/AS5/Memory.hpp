@@ -4,8 +4,7 @@
 #define MEMORY_HPP
 
 #include <iostream>
-#include "Player.hpp"
-#include "Computer.hpp"
+#include <string>
 #include <fstream>
 #include <stdlib.h>
 #define MAX_ARRAY_SIZE 512
@@ -14,13 +13,13 @@ class Memory {
 public:
     Memory();
     ~Memory();
-    void loadData();
+    void loadData(std::string content);
     void storeData();
     void setFileName(std::string fname);
-    void setData(Player *p, Computer *c);
+    void setData(char input);
 private:
-    std::string filename;
-    char *data;
+    std::string filename = ".";
+    char data[MAX_ARRAY_SIZE];
 };
 
 #endif /* MEMORY_HPP */
