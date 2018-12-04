@@ -5,6 +5,8 @@
 Memory::Memory()
 {
     std::fill (data, data + MAX_ARRAY_SIZE, ' ');
+    df.frequency = 0;
+    df.frequent_str="RRR";
 }
 
 Memory::~Memory()
@@ -48,10 +50,31 @@ void Memory::setData(char input)
         {
             data[i] = input;
         }
-        if(!(i % 5))
+        if(!(i % 3))
         {
             data[i] = '\n';
         }
     }        
 }
 
+void Memory::setFrequency()
+{
+    char ch[5];
+    for(int i = 0; i<MAX_ARRAY_SIZE; i++)
+    {
+        for(int j=0;j<LOOKUP_SIZE;j++)
+        {
+            if(data[i]==CHOICE_LOOKUP[j])
+            {
+                std::strncat(df.string, data[i], 3);
+                df.frequency++;
+            }
+        }
+    }
+}
+
+int Memory::getFrequency(int freq, std::string freq_str)
+{
+    freq = df.frequency;
+    freq_str = df.frequent_str;
+}
