@@ -2,6 +2,7 @@
 #define STARTSTATE_H_
 
 #include "InventoryState.h"
+#include <string>
 
 class Inventory;
 

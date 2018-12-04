@@ -17,6 +17,6 @@ void PreferState::Remove(Inventory* i_obj) {
     i_obj->handleState(Inventory::I_REMOVE);
 }
 
-void PreferState::Prefer(Inventory* i_obj) {
+void PreferState::Change(Inventory* i_obj) {
     i_obj->handleState(Inventory::I_PREFER);
 }  

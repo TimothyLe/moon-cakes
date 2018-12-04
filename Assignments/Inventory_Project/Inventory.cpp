@@ -16,22 +16,27 @@ Inventory::~Inventory() {
 
 void Inventory::Start() {
     m_pState->Start(this);
+    std::cout << "Current state: Starting\n";
 }
 
 void Inventory::Add() {
     m_pState->Add(this);
+    std::cout << "Current state: Add\n";
 }
 
 void Inventory::Remove() {
     m_pState->Remove(this);
+    std::cout << "Current state: Remove\n";
 }
 
 void Inventory::Change() {
     m_pState->Change(this);
+    std::cout << "Current state: Change\n";
 }
 
 void Inventory::Prefer() {
     m_pState->Prefer(this);
+    std::cout << "Current state: Prefer\n";
 }
 
 // State Handler

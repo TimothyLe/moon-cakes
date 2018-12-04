@@ -1,11 +1,15 @@
 #include "Inventory.h"
+#include <iostream>
 
-#define MAX_ITEMS 50
-#define MAX_LISTS 20
-
-int main(void) {
-
+int main(int argc, char ** argv) {
+    // std::cout << "Hello\n";
     Inventory inventory;
+
+    std::cout << "You inserted " << argc << " states:\n";
+
+    for(int i = 0; i < argc; i++) {
+        std::cout << argv[i] << "\n";        
+    }
 
     inventory.Add();
     inventory.Remove();
