@@ -1,0 +1,54 @@
+#include "ArrayList.h"
+#include "Iterator.h"
+#include "Item.h"
+#include "VectorList.h"
+
+#include <iostream>
+#include <string>
+
+List<Item> * MakeDrinksList() {
+    List<Item> * drinksList = new VectorList<Item>();
+
+    drinksList->addItem(Item(std::string("Sprite"),  std::string("Fruit"), 1234));
+    drinksList->addItem(Item(std::string("Coke"),    std::string("Cola"), 1235));
+    drinksList->addItem(Item(std::string("Fanta"),   std::string("Fruit"), 1236));
+    drinksList->addItem(Item(std::string("A&W"),     std::string("RB"), 1237));
+
+    return drinksList;
+}
+
+List<Item> * MakeSnacksList() {
+    List<Item> * snacksList = new ArrayList<Item>();
+
+    snacksList->addItem(Item(std::string("Cheetos"),    std::string("Chips"), 1334));
+    snacksList->addItem(Item(std::string("Cupcake"),    std::string("Bakery"), 1335));
+    snacksList->addItem(Item(std::string("Twinkies"),   std::string("Bakery"), 1336));
+    snacksList->addItem(Item(std::string("Nuggets"),    std::string("Freezer"), 1337));
+
+    return snacksList;
+}
+
+void PrintList(std::string lineName, Iterator<Item> * iterator) {
+    std::cout << lineName << "\n";
+    unsigned int linePosition = 1;
+    for(iterator->first(); !iterator->isDone(); iterator->next()) {
+        std::cout << linePosition++ << ". " << iterator->currentItem() << "\n";
+    }
+    std::cout << "\n";
+}
+
+int main() {
+    List<Item> * drinksList = MakeDrinksList();
+    Iterator<Item> * drinksListIterator = drinksList->createIterator();
+    PrintList(std::string("Drinks"), drinksListIterator);
+    delete drinksListIterator;
+    delete drinksList;
+
+    List<Item> * snacksList = MakeSnacksList();
+    Iterator<Item> * snacksListIterator = snacksList->createIterator();
+    PrintList(std::string("Snacks"), snacksListIterator);
+    delete snacksListIterator;
+    delete snacksList;
+
+    return 0;
+}
