@@ -1,4 +1,4 @@
-#include "Inventory.h"
+#include "State/Inventory.h"
 #include <iostream>
 
 int main(int argc, char ** argv) {
